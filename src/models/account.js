@@ -74,12 +74,13 @@ AccountSchema.methods.generateToken = function() {
 
     return generateToken(payload, 'account');
 };
+AccountSchema.methods.increaseThoughtCount = function() {
+    this.thoughtCount++;
+    return this.save();
+};
 
-if(mongoose.models.account) {
-    Account = mongoose.model('Account');
+if (mongoose.models.Account) {
+    module.exports = mongoose.model('Account');
 } else {
-    Account = mongoose.model('Account', AccountSchema);
+    module.exports = mongoose.model('Account', AccountSchema);
 }
- 
- module.exports = Account
- 
