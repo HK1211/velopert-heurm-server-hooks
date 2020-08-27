@@ -13,12 +13,7 @@ const BookSchema = new Schema({
     publishedDate: Date,
     price: Number,
     tags: [String],
-    createdAt: { // 기본값을 설정할땐 이렇게 객체로 설정해줍니다
-        type: Date,
-        default: new Date(
-            new Date().getTime() - new Date().getTimezoneOffset() * 60000
-          )
-    }
+    createdAt: { type: Date, default: Date.now}
 });
 
 // 스키마를 모델로 변환하여, 내보내기 합니다.

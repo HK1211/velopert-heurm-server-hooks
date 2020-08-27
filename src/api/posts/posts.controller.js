@@ -6,7 +6,7 @@ const ObjectId = require('mongoose').Types.ObjectId;
 exports.write = async (ctx) => {
     /* 유저 검증하기 */
     const { user } = ctx.request;
-
+    
     if(!user) {
         // 비로그인 에러
         ctx.status = 403;
@@ -86,7 +86,7 @@ exports.list = async (ctx) => {
 
     //  데이터와, 그 다음 데이터를 가져오는 API 주소를 응답합니다.
     ctx.body = {
-        next, 
+        next,
         data: posts
     };
 };

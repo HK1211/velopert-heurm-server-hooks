@@ -13,7 +13,9 @@
     "koa": "^2.13.0",
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^9.4.0",
-    "mongoose": "^5.10.0"
+    "koa-websocket": "^6.0.0",
+    "mongoose": "^5.10.0",
+    "react-textarea-autosize": "^8.2.0"
   },
   "scripts": {
     "start": "cross-env NODE_PATH=src node src",

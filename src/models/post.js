@@ -2,17 +2,13 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const CommentSchema = new Schema({
-    createdAt: { type: Date, default: new Date(
-        new Date().getTime() - new Date().getTimezoneOffset() * 60000
-    )},
+    createdAt: { type: Date, default: Date.now},
     username: String, 
     text: String
 });
 
 const PostSchema = new Schema({
-    createdAt: { type: Date, default: new Date(
-        new Date().getTime() - new Date().getTimezoneOffset() * 60000
-    )},
+    createdAt: { type: Date, default: Date.now},
     count: Number,
     username: String,
     content: String,

@@ -2,8 +2,9 @@ require('dotenv').config(); // .env 파일에서 환경변수 불러오기
 
 const Koa = require('koa');
 const Router = require('koa-router');
+const websockify = require('koa-websocket');
 
-const app = new Koa();
+const app = websockify(new Koa());
 const router = new Router();
 const api = require('./api');
 
