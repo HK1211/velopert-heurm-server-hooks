@@ -7,6 +7,7 @@ const websockify = require('koa-websocket');
 const app = websockify(new Koa());
 const router = new Router();
 const api = require('./api');
+const ws = require('./ws');
 
 const mongoose = require('mongoose');
 const bodyParser = require('koa-bodyparser');
@@ -29,8 +30,10 @@ const port = process.env.PORT || 4000; // PORT 값이 설정되어있지 않다�
 
 app.use(bodyParser()); // 바디파서 적용, 라우터 적용코드보다 상단에 있어야합니다.
 app.use(jwtMiddleware); // access_token, api 라우트가 적용되기 전에 미들웨어를 적용
+
 router.use('/api', api.routes()); // api 라우트를 /api 경로 하위 라우트로 설정
 app.use(router.routes()).use(router.allowedMethods());
+app.ws.use(ws.routes()).use(ws.allowedMethods());
 
 app.listen(port, () => {
     console.log('heurm server is listening to port ' + port);
